@@ -19,6 +19,11 @@
   "dependencies": {
     "express": "^4.15.4",
     "mongodb": "^2.2.31",
-    "redis": "^2.8.0"
-  }
+    "redis": "^2.8.0",
+    "redis-server": "^1.1.0"
+  },
+  "engines": { 
+    "node": ">=6.11.12",
+    "npm": "~3.10.10"
+  } 
 }

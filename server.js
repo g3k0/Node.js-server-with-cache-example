@@ -8,6 +8,9 @@ let fs = require('fs');
 let config = JSON.parse(fs.readFileSync('./config.json','utf8'));
 let dbAccess = require('./dbAccess.js');
 
+let redisClient = require('redis').createClient;
+let redis = redisClient(config.redis.port, config.redis.host);
+
 /*--------------------------------------------------------------------------------------------*/
 
 MongoClient.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`, (err, db) => {
@@ -36,12 +39,12 @@ MongoClient.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.n
         	return res.status(400).send('Please send a proper key');
         }
         
-        dbAccess.findBookByTitle(db, req.param('key'), (value) => {
-            if (!text) {
+        dbAccess.findDataByKey(db, req.param('key'), (value) => {
+            if (!value) {
             	return res.status(500).send('Server error');
             }
             
-            return res.status(200).send(book);
+            return res.status(200).send(value);
         });
         
     });
