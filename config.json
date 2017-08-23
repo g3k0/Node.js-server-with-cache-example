@@ -1,5 +1,10 @@
 {
-	"db": "localhost",
-	"port": 27017,
-	"name": "fashionCloud"
+	"db": {
+		"host": "localhost",
+		"port": 27017,
+		"name": "fashionCloud" 
+	},
+	"server": {
+		"port": 3000
+	}
 }

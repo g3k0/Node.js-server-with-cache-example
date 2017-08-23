@@ -6,14 +6,14 @@ let MongoClient = require('mongodb').MongoClient;
 let app = express();
 let fs = require('fs');
 
-let config = fs.readFileSync('config/json');
+let config = JSON.parse(fs.readFileSync('./config.json','utf8'));
 
 /*--------------------------------------------------------------------------------------------*/
 
 MongoClient.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`, (err, db) => {
     if (err) throw `Error connecting to database - ${err}`;
 
-    app.listen(3000, function () {
-        console.log('Listening on port 3000');
+    app.listen(config.server.port, function () {
+        console.log(`Listening on port ${config.server.port}`);
     });
 });
