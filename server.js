@@ -70,6 +70,30 @@ MongoClient.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.n
     	});
     });
 
+    app.delete('/remove', (req, res) => {
+    	dbAccess.deleteAllData(db, (err, docs) => {
+    		if (err) {
+    			return res.status(500).send('Server error');
+    		}
+
+    		return res.status(201).send('All data removed');
+    	});
+    });
+
+    app.delete('/remove/:key', (req, res) => {
+    	if (!req.param('key')) {
+        	return res.status(400).send('Please send a proper key');
+        }
+
+    	dbAccess.deleteDataByKey(db, req.param('key'), (err, key) => {
+    		if (err) {
+    			return res.status(500).send('Server error');
+    		}
+
+    		return res.status(201).send(`data with key ${key} removed`);
+    	});
+    });
+
     /**
      * server listening
      */

@@ -48,6 +48,24 @@ let getData = (db,cb) => {
 	});
 }
 
+let deleteDataByKey = (db, key, cb) => {
+	db.collection('text').deleteOne({ key : key }, (err, result) => {
+		if (err) {
+			return cb(err);
+		}
+		return cb(null, key);
+	});
+}
+
+let deleteAllData = (db, cb) => {
+	db.collection('text').remove((err, result) => {
+		if (err) {
+			return cb(err);
+		}
+		return cb(null, 'deleted');
+	});
+}
+
 /**
  * exports
  */
@@ -57,4 +75,6 @@ module.exports.findDataByKey = findDataByKey;
 module.exports.findDataByKeyCached = findDataByKeyCached;
 module.exports.updateDbWithRandomValue = updateDbWithRandomValue;
 module.exports.getData = getData;
+module.exports.deleteDataByKey = deleteDataByKey;
+module.exports.deleteAllData = deleteAllData;
 
