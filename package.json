@@ -1,7 +1,7 @@
 {
-  "name": "fashion_cloud",
+  "name": "RESTful-web-server-with-cache",
   "version": "1.0.0",
-  "description": "code test",
+  "description": "a Node.js RESTful web server example that implements a cache system",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,20 +10,24 @@
     "type": "git",
     "url": "git+https://github.com/g3k0/fashionCloud.git"
   },
-  "author": "Christian Palazzo",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/g3k0/fashionCloud/issues"
+  "author": {
+    "name": "Christian Palazzo",
+    "email": "info@christianpalazzo.org",
+    "url": "http://www.christianpalazzo.org"
   },
-  "homepage": "https://github.com/g3k0/fashionCloud#readme",
+  "license": "LicenseRef-LICENSE",
+  "bugs": {
+    "url": "https://github.com/g3k0/Node.js-server-with-cache-example/issues"
+  },
+  "homepage": "https://github.com/g3k0/Node.js-server-with-cache-example#readme",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "mongodb": "^2.2.31",
-    "redis": "^2.8.0",
-    "redis-server": "^1.1.0"
+    "redis": "^2.8.0"
   },
-  "engines": { 
+  "engines": {
     "node": ">=6.11.12",
     "npm": "~3.10.10"
-  } 
+  }
 }
