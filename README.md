@@ -1,4 +1,4 @@
-# synopsis
+# Synopsis
 The application is a Node.js server that exposes REST API to interact with a MongoDB database and implements a cache system layer. 
 
 # How to run
@@ -48,7 +48,7 @@ npm start
 * [DELETE] localhost:3000/remove/\<key\> (remove a value for a certain key);
 
 
-# NOTES
+# Notes
 
 The code is just an example that shows how to implement a cache system with a Node.js server. 
 For a real application consider to:
