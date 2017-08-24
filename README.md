@@ -43,7 +43,7 @@ npm start
 
 * [GET] localhost:3000/data (get all data);
 * [GET] localhost:3000/data/\<key\> (get a value in cache or update data and return a random string);
-* [POST] localhost:3000/data , body: {key:<key>, value:\<value\>} (save or update a key value pair);
+* [POST] localhost:3000/data , body: {key:\<key\>, value:\<value\>} (save or update a key value pair);
 * [DELETE] localhost:3000/remove (remove all data);
 * [DELETE] localhost:3000/remove/\<key\> (remove a value for a certain key);
 
