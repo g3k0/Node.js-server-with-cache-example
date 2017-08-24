@@ -62,6 +62,7 @@ MongoClient.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.n
             		if (!value) {
             			return res.status(500).send('Server error');
             		}
+                    redis.set(req.param('key'), value);
             		return res.status(201).send(value);
             	});
             } else {
