@@ -5,39 +5,39 @@ The application is a Node.js server that exposes REST API to interact with a Mon
 
 ### system requirements
 	
-	* Node.js version 6.11.12 or higher;
-	* a MongoDB instance running, version 2.6.10 or higher;
+* Node.js version 6.11.12 or higher;
+* a MongoDB instance running, version 2.6.10 or higher;
 
 ### install redis-server on your system
 
-   for debian systems: 
+for debian systems: 
 
-   ```sh
-   apt-get install redis-server
-   ```
+```sh
+apt-get install redis-server
+```
 
 ### run redis server
-	
-	```sh
-	sudo redis-server
-	```
-	keep the batch process running in the shell
+
+```sh
+sudo redis-server
+```
+keep the batch process running in the shell
 
 ### install the dependencies
    
-   open a shell go to the project root folder and type the command: 
+open a shell go to the project root folder and type the command: 
 
-   ```sh
-   npm install
-   ```
+```sh
+npm install
+```
 
 ### start the server
 
-   in the root project folder type: 
+in the root project folder type: 
 
-  ```sh
-   npm start
-   ```
+```sh
+npm start
+```
 
 # API Documentation
 
