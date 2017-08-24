@@ -1,27 +1,45 @@
+#synopsis
+The application is a Node.js server that exposes REST API to interact with a MongoDB database and implements a cache system layer. 
+
 # How to run
 
-## system requirements
+### system requirements
 	
-	read the package.json file for the proper Node.js version required
+	* Node.js version 6.11.12 or higher;
+	* a MongoDB instance running, version 2.6.10 or higher;
 
-## install redis-server on your system
+### install redis-server on your system
 
-   for debian systems: apt-get install redis-server
+   for debian systems: 
 
-## run redis server
+   ```sh
+   apt-get install redis-server
+   ```
 
+### run redis server
+	
+	```sh
 	sudo redis-server
+	```
 	keep the batch process running in the shell
 
-## install the dependencies
+### install the dependencies
    
-   open a shell go to the project root folder and type the command: npm install
+   open a shell go to the project root folder and type the command: 
 
-## start the server
+   ```sh
+   npm install
+   ```
 
-   in the root project folder type: npm start
+### start the server
 
-## API Documentation
+   in the root project folder type: 
+
+  ```sh
+   npm start
+   ```
+
+# API Documentation
 
 * [GET] localhost:3000/data (get all data);
 * [GET] localhost:3000/data/\<key\> (get a value in cache or update data and return a random string);
@@ -30,9 +48,12 @@
 * [DELETE] localhost:3000/remove/\<key\> (remove a value for a certain key);
 
 
-## NOTES
+# NOTES
 
-the code is quite simple, due to time given I didn' used an ORM such us Mongoose and I prefered the simple mongodb driver. 
-Furthmore the server.js file is quite long at it would be possible to split the code putting the routes handlers in another file. 
+The code is just an example that shows how to implement a cache system with a Node.js server. 
+For a real application consider to:
 
-Please consider that I didn't used my work laptop and in the time given I also setted the development environment. 
+ * implement an ORM such as Mongoose;
+ * split the config file for different environments (local, development, staging, production);
+ * write unit tests;
+ * configure properly the cache system;
