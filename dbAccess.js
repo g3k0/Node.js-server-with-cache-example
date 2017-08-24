@@ -1,7 +1,7 @@
 let saveData = (db, key, value, cb) => {
     db.collection('text').save({
         key: key,
-        data: data,
+        value: value,
     }, cb);
 };
 

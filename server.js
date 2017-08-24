@@ -8,6 +8,7 @@ let fs = require('fs');
 let config = JSON.parse(fs.readFileSync('./config.json','utf8'));
 let dbAccess = require('./dbAccess.js');
 let utils = require('./utils.js');
+let bodyParser = require('body-parser');
 
 let redisClient = require('redis').createClient;
 let redis = redisClient(config.redis.port, config.redis.host);
@@ -18,6 +19,11 @@ MongoClient.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.n
     if (err) throw `Error connecting to database - ${err}`;
 
     /**
+     * Middlewares
+     */
+    app.use(bodyParser.json());
+
+    /**
      * server routing
      */
     app.post('/data', (req, res) => {
@@ -26,7 +32,7 @@ MongoClient.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.n
         	res.status(400).send('Please send a key and a value');
         }
 
-        dbAaccess.saveData(db, req.body.key, req.body.value, err => {
+        dbAccess.saveData(db, req.body.key, req.body.value, err => {
             if (err) {
             	return res.status(500).send('Server error');
             }
@@ -40,12 +46,12 @@ MongoClient.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.n
         	return res.status(400).send('Please send a proper key');
         }
         
-        dbAccess.findDataByKeyCached(redis, req.param('key'), (value) => {
+        dbAccess.findDataByKeyCached(redis, req.param('key'), value => {
             if (!value) {
             	console.log('Cache miss');
             	let string = utils.createRandomString();
             	
-            	dbAccess.updateDbWithRandomValue(db,req.param('key'),string,(value) =>{
+            	dbAccess.updateDbWithRandomValue(db,req.param('key'),string, value =>{
             		if (!value) {
             			return res.status(500).send('Server error');
             		}
@@ -98,7 +104,7 @@ MongoClient.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.n
      * server listening
      */
 
-    app.listen(config.server.port, function () {
+    app.listen(config.server.port, () => {
         console.log(`Listening on port ${config.server.port}`);
     });
 });
