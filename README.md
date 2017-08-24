@@ -55,5 +55,6 @@ For a real application consider to:
 
  * implement an ORM such as Mongoose;
  * split the config file for different environments (local, development, staging, production);
+ * split the code in the serve.js entry point putting the routes handlers in a separate file;
  * write unit tests;
- * configure properly the cache system;
+ * configure the cache system;

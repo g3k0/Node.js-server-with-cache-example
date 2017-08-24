@@ -58,7 +58,7 @@ MongoClient.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.n
             	console.log('Cache miss');
             	let string = utils.createRandomString();
             	
-            	dbAccess.updateDbWithRandomValue(db,req.param('key'),string, value =>{
+            	dbAccess.updateDbWithRandomValue(db,req.param('key'),string, value => {
             		if (!value) {
             			return res.status(500).send('Server error');
             		}
