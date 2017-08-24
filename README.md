@@ -1,4 +1,4 @@
-#synopsis
+# synopsis
 The application is a Node.js server that exposes REST API to interact with a MongoDB database and implements a cache system layer. 
 
 # How to run
