@@ -1,4 +1,11 @@
 /**
+ * RESTful web server with cache - app entry point
+ * @author: Christian Palazzo
+ * @date: 23, Aug 2017
+ */
+
+
+/**
  * module dependencies
  */
 let express = require('express');

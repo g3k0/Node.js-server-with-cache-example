@@ -1,3 +1,10 @@
+/**
+ * RESTful web server with cache - db crud operations file
+ * @author: Christian Palazzo
+ * @date: 23, Aug 2017
+ */
+
+
 let saveData = (db, key, value, cb) => {
     db.collection('text').save({
         key: key,
@@ -77,4 +84,3 @@ module.exports.updateDbWithRandomValue = updateDbWithRandomValue;
 module.exports.getData = getData;
 module.exports.deleteDataByKey = deleteDataByKey;
 module.exports.deleteAllData = deleteAllData;
-

@@ -1,3 +1,10 @@
+/**
+ * RESTful web server with cache - common utils functions file
+ * @author: Christian Palazzo
+ * @date: 23, Aug 2017
+ */
+
+
 let createRandomString = () => {
   let text = '';
   let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
